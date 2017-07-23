@@ -7,7 +7,7 @@ import SearchPhone from './views/Search';
 const DefaultRoutes = (
     <Router history={browserHistory}>
         <Route path="/" component={MainLayout}>
-            <Route path="/search" component={SearchPhone} />
+            <Route path="/" component={SearchPhone} />
         </Route>
     </Router>
 );
