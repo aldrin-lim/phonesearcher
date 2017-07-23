@@ -1,1 +1,37 @@
 /* CSS declarations go here */
+a{
+  text-decoration: none !important;
+}
+.uk-description-list dd{
+  font-weight: bold !important;
+  /* font-size: 80%; */
+}
+#phonelist {
+  margin-top: 0px; 
+  border-bottom: solid 1px #ddd;
+  border-right: solid 1px #ddd;
+  border-left: solid 1px #ddd;
+  box-shadow: 1px 2px 5px #ddd;
+}
+#phonelist li{
+  padding: 0;
+}
+#phonelist li a{
+  color: #333 !important;
+  display: block;
+  padding: 10px;
+}
+#phonelist  li a span:nth-child(1){
+  display: block;
+  font-size: 80%;
+}
+#phonelist  li a span:nth-child(2){
+  font-weight: bold !important;
+}
+#searchlist {
+  margin-top: -10px;
+  border-bottom: solid 1px #ddd;
+  border-right: solid 1px #ddd;
+  border-left: solid 1px #ddd;
+  box-shadow: 1px 2px 5px #ddd;
+}
