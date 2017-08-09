@@ -1,88 +1,27 @@
 import React, { Component } from 'react';
 import { autobind } from 'core-decorators';
-
+import { connect } from 'react-redux';
+import { createContainer } from 'meteor/react-meteor-data';
+import PhoneUnits from '../../../models/PhoneUnits';
+import { setPhoneUnitList } from '../../actions';
 @autobind
 class SearchPhone extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data: [
-        {
-          name: "P9",
-          brand: "Huawei",
-          case: [
-            "3D Case",
-            "Hard Case",
-            "Rubber Case"
-          ]
-        },
-        {
-          name: "iPhone 6",
-          brand: "Apple",
-          case: [
-            "3D Case",
-            "Hard Case",
-            "Rubber Case"
-          ]
-        },
-        {
-          name: "Galaxy S7 Edge",
-          brand: "Samsung",
-          case: [
-            "3D Case",
-            "Hard Case",
-            "Rubber Case"
-          ]
-        },
-        {
-          name: "Galaxy S8",
-          brand: "Samsung",
-          case: [
-            "3D Case",
-            "Hard Case",
-            "Rubber Case"
-          ]
-        },
-        {
-          name: "Zenfone Max",
-          brand: "Asus",
-          case: [
-            "3D Case",
-            "Hard Case",
-            "Rubber Case"
-          ]
-        },
-        {
-          name: "Zenfone 3",
-          brand: "Asus",
-          case: [
-            "3D Case",
-            "Hard Case",
-            "Rubber Case"
-          ]
-        },
-        {
-          name: "Xperia XA",
-          brand: "Sony",
-          case: [
-            "3D Case",
-            "Hard Case",
-            "Rubber Case"
-          ]
-        },
-        {
-          name: "Xperia XA Ultra",
-          brand: "Asus",
-          case: [
-            "3D Case",
-            "Hard Case",
-            "Rubber Case"
-          ]
-        },
+        
       ],
       searchlist: []
     }
   }
+  componentWillReceiveProps(nextProps){
+    console.log(nextProps.phones)
+    this.setState({
+      data: nextProps.phones
+    })
+  }
+
   search(e){
     const value = e.target.value;
     let result = this.state.data.filter((item) => {
@@ -97,6 +36,9 @@ class SearchPhone extends Component {
     })
   }
   render() {
+    if(!this.props.loading){
+      return ( <div className="uk-card uk-card-default uk-card-body uk-margin uk uk-height-1-1"> LOADING ...</div>)
+    }
     return (
       <div className="uk-card uk-card-default uk-card-body uk-margin uk uk-height-1-1">
         <div className="uk-placeholder uk-text-center">Search your Phone here <br /> <i className="fa fa-arrow-down" aria-hidden="true"></i></div>
@@ -126,4 +68,25 @@ class SearchPhone extends Component {
   }
 }
 
-export default SearchPhone;
+const mapStateToProps = (state) => {
+  return {
+    redux: state
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setPhoneUnitList: args => dispatch(setPhoneUnitList)
+  };
+};
+
+const ReduxWrapper = connect(mapStateToProps, mapDispatchToProps)(SearchPhone);
+export default createContainer(() => {
+  // console.log(PhoneUnits.find({}).fetch())
+
+  let loading = Meteor.subscribe('phoneunits');
+  return {
+    "loading": loading.ready(),
+    "phones": PhoneUnits.find().fetch()
+  };
+}, ReduxWrapper);

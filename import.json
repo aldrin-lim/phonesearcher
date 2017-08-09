@@ -1,0 +1,17 @@
+[
+  {
+    "brand": "Asus",
+    "name": "Zenfone 3 5.5 inch (ZE552KL)",
+    "cases": ["3D Case", "Hard Case"]
+  },
+  {
+    "brand": "Samsung",
+    "name": "Galaxy A3 2015",
+    "cases": ["3D Case", "Hard Case", "Rubber Case"]
+  },
+  {
+    "brand": "Sony",
+    "name": "Xperia XA",
+    "cases": ["3D Case", "Hard Case", "Rubber Case"]
+  }
+]

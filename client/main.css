@@ -15,11 +15,15 @@ a{
 }
 #phonelist li{
   padding: 0;
+  margin-top: 0;
 }
 #phonelist li a{
   color: #333 !important;
   display: block;
   padding: 10px;
+}
+#phonelist li a:active{
+  background-color: #ddd;
 }
 #phonelist  li a span:nth-child(1){
   display: block;
