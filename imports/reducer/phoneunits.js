@@ -1,4 +1,7 @@
-
+/**
+ * @author Aldrin Lim
+ * Reducer for Phone Units
+ */
 
 export default (state = [], action) => {
   switch(action.type){
