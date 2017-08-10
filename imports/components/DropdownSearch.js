@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-
+import { Link } from 'react-router';
 class DropdownSearch extends Component {
   constructor(props){
     super(props);
     this.state = {
       searchlist: props.searchlist
     }
-    console.log(props)
   }
   componentWillReceiveProps(nextProps){
     this.setState({
@@ -24,10 +23,10 @@ class DropdownSearch extends Component {
                 this.state.searchlist.map((item, key) => {
                   return (
                     <li key={key}>
-                      <a href="#">
+                      <Link to={`/phone/${item._id}`}>
                         <span>{item.brand}</span>
                         <span>{item.name}</span>
-                      </a>
+                      </Link>
                     </li>
                   )
                 })

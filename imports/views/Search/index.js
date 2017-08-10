@@ -17,9 +17,9 @@ class SearchPhone extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [],
+      data: props.phones,
       searchlist: [],
-      loading: true
+      loading: props.loading
     };
   }
 
@@ -50,66 +50,16 @@ class SearchPhone extends Component {
     })
   }
 
-  createNewPhone(){
-    let data = {
-        "brand": "Apple",
-        "name": "iPhone 4",
-        "cases": [
-            {
-                "type": "Hard Case",
-                "options": [
-                    "Pink",
-                    "Red",
-                    "Orange",
-                    "Green",
-                    "Sky Blue",
-                    "Clear",
-                    "Black",
-                    "White"
-                ]
-            },
-            {
-                "type": "Rubber Case",
-                "options": [
-                    "Black",
-                    "White",
-                    "Clear"
-                ]
-            },
-            {
-                "type": "3D Case",
-                "options": [
-                    "Matte",
-                    "Glossy"
-                ]
-            }
-        ]
-    }
-    this.setState({ loading: true }, () => {
-      Meteor.call("createPhoneUnits",data, (error, result) => {
-        if(error){
-          console.error(error);
-        } else {
-          console.log(result);
-        }
-        this.setState({
-          loading: false
-        });
-      })
-    });
-    
-  }
+  
   render() {
     if(this.state.loading){
       return (<Spinner/>)
     }
     return (
-      <Card>
-        <div className="uk-placeholder uk-text-center">Search your Phone here <br /> <i className="fa fa-arrow-down" aria-hidden="true"></i></div>
+      <div>
         <span data-uk-search-icon></span>
-        <button onClick={this.createNewPhone}> Create </button>
         <DropdownSearch onChange={this.search} searchlist={this.state.searchlist} />
-      </Card>
+      </div>
     );
   }
 }
