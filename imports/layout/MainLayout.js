@@ -1,3 +1,8 @@
+/**
+ * @author Aldrin Lim
+ * Main layout for the App
+ */
+
 import React, { Component } from 'react';
 
 class MainLayout extends Component {
