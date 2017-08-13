@@ -15,7 +15,7 @@ class PhoneDetail extends Component {
           :
             <div>
               <i style={{fontSize: "8em"}} className="fa fa-mobile" aria-hidden="true"></i>
-              <h1 className="uk-heading-line uk-text-center"><span>{this.props.phone.name}</span></h1>
+              <h1 className="uk-heading-line uk-text-center">{this.props.phone.name}</h1>
               <p className="uk-text-muted">Available In:</p>
               <p> 
                 {

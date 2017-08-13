@@ -3,8 +3,12 @@ import { Mongo } from 'meteor/mongo';
 import PhoneUnits from '../models/PhoneUnits';
 Meteor.startup(() => {
   Meteor.methods({
-    createPhoneUnits(args) {
-      return PhoneUnits.insert(args);
-    } 
+    createPhoneUnits(model, brand, cases) {
+      return PhoneUnits.insert({
+        "brand": brand,
+        "name": model,
+        "cases": cases
+      });
+    }
   });
 });

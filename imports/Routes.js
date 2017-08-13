@@ -11,6 +11,7 @@ import { render } from 'react-dom';
 import MainLayout from './layout/MainLayout';
 import SearchPhone from './views/Search';
 import PhoneDetail from './views/PhoneDetail';
+import AddPhone from './views/AddPhone';
 import Reducer from './reducer';
 
 // Redux Store
@@ -22,6 +23,7 @@ const DefaultRoutes = (
         <Route path="/" component={MainLayout}>
           <IndexRoute component={SearchPhone} />
           <Route path="phone/:id" component={PhoneDetail} />
+          <Route path="add/phone" component={AddPhone} />
         </Route>
     </Router>
   </Provider>

@@ -1,4 +1,7 @@
 /* CSS declarations go here */
+body,html,#render-target{
+  height: 100%;
+}
 a{
   text-decoration: none !important;
 }
@@ -34,6 +37,10 @@ a{
   font-weight: bold !important;
 }
 
-.phonedetails .uk-heading-line > :before{
+.phonedetails .uk-heading-line h1 span ::before{
   left: auto !important;
+}
+
+.card_container{
+  overflow-y: auto;
 }
